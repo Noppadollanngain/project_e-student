@@ -19,13 +19,13 @@
                             <a href="#"><i class="fa fa-th-list fa-fw"></i> Admin Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Add Admin</a>
+                                    <a href="{{route('admin.addadmin')}}">Add Admin</a>
                                 </li>
                                 <li>
                                     <a href="{{route('admin.showadmin')}}">Show Admin</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.showpos')}}">Add Possition</a>
+                                    <a href="{{route('possition')}}">Add Possition</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

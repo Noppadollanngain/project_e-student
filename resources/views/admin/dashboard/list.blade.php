@@ -1,5 +1,5 @@
 @extends('admin.layouts.template')
-@section('title','Admin Dashboard')
+@section('title','Admin List')
 @section('content')
 <div class="row">
         <div class="panel panel-default">

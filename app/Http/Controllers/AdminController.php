@@ -40,4 +40,13 @@ class AdminController extends Controller
             'count' => $list_Admin_count
         ]);
     }
+
+    public function create(){
+        $list_possition = DB::table('possition')
+                            ->select('possition.name','possition.id')
+                            ->get();
+        return view('admin.dashboard.regis-admin',[
+            'possition' => $list_possition
+        ]);
+    }
 }

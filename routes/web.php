@@ -26,6 +26,6 @@ Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/showadmin','AdminController@showAdmin')->name('admin.showadmin');
-    Route::get('/showpos','PossitionController@showListPos')->name('admin.showpos');
-    Route::get('/addpossition','PossitionController@showListPos')->name('admin.addpos');
+    Route::get('/addadmin','AdminController@create')->name('admin.addadmin');
+    Route::resource('/possition', 'PossitionController')->name('index','possition');
   });

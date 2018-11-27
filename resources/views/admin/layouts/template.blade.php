@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -53,7 +53,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-	@include('admin.layouts.inc-scripts')
+    @include('admin.layouts.inc-scripts')
     @yield('scripts')
 </body>
 

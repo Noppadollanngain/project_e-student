@@ -21,7 +21,7 @@
                         <tbody>
                             @foreach ($list as $lists)
                             <tr>
-                                <td>{{ $lists->id }}</td>
+                                <td>{{ $num++ }}</td>
                                 <td>{{ $lists->fname.' '.$lists->lname }}</td>
                                 <td>{{ $lists->name }}</td>
                                 <td></td>

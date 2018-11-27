@@ -28,4 +28,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/showadmin','AdminController@showAdmin')->name('admin.showadmin');
     Route::get('/addadmin','AdminController@create')->name('admin.addadmin');
     Route::resource('/possition', 'PossitionController')->name('index','possition');
+
+    Route::get('/regis', 'AdminController@Addadmin')->name('admin.regis');
+
   });

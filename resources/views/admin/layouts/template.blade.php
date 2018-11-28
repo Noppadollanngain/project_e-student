@@ -12,11 +12,22 @@
 
     <!-- Bootstrap Core CSS -->
     @include('admin.layouts.inc-stylesheet')
-	@yield('stylesheet')
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link href="{{  asset('css/lity.min.css')  }}" rel="stylesheet">
+    <script src="{{ asset('assets/js/jquery-3.3.1.min.js')}}"></script>
+    <style>
+        html *
+        {
+            font-family: 'Kanit', sans-serif;
+        }
+    </style>
+    @yield('stylesheet')
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -55,6 +66,7 @@
     <!-- jQuery -->
     @include('admin.layouts.inc-scripts')
     @yield('scripts')
+    <script src="{{ asset('js/lity.min.js') }}"></script>
 </body>
 
 </html>

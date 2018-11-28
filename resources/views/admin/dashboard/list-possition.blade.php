@@ -14,6 +14,7 @@
                         <tr>
                             <th>ลำดับ</th>
                             <th>ชื่อตำแหน่ง</th>
+                            <th>จำนวน</th>
                             <th>สถานะ</th>
                         </tr>
                     </thead>
@@ -22,15 +23,23 @@
                         <tr>
                             <td>{{ $row++ }}</td>
                             <td>{{ $possitions->name }}</td>
+                            <td>@if ($possitions->id==1)
+                                    {{$num1}}
+                                @elseif ($possitions->id==2)
+                                    {{$num2}}
+                                @elseif ($possitions->id==3)
+                                    {{$num3}}
+                                @endif
+                            </td>
                             <td>
-                                <?= Form::open(array('url' => 'admin/possition/' . $possitions->id, 'method' => 'delete','onsubmit' => 'return confirm(" แน่ใจว่าต้องการลบข้อมูล?");')) ?>
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fa fa-trash-o"></i>
-                                    </button>
+                                @if (Auth::user()->possition==1)
                                     <a class="btn btn-warning" href="{{ url('admin/possition/'.$possitions->id.'/edit') }}">
                                         <i class="fa fa-gears"></i>
                                     </a>
-                                {!! Form::close() !!}
+                                 @else
+                                    สามารถไช้งานได้
+                                @endif
+
                             </td>
                         </tr>
                         @endforeach
@@ -39,23 +48,6 @@
                 <div style="text-align:center;">
                     {!! $possition->render()  !!}
                 </div>
-
-                <h3>เพิ่มข้อมูลตำแหน่งเจ้าหน้าที่</h3>
-
-                {!! Form::open(array('url' => 'admin/possition')) !!}
-
-                        <div class="form-group">
-                            <?= Form::label('title', 'ตำแหน่ง'); ?>
-                            <?= Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'ระบุตำแหน่ง..']); ?>
-                        </div>
-
-                        <div class="form-group">
-                            <?= Form::submit('บันทึก', ['class' => 'btn btn-primary col-md-2 col-md-offset-8']); ?>
-                            <button type="reset" class="btn btn-danger col-md-2">ยกเลิก</button>
-                        </div>
-
-                {!! Form::close() !!}
-
             </div>
             <!-- /.table-responsive -->
         </div>

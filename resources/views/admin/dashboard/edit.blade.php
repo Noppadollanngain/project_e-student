@@ -30,7 +30,7 @@
     </div>
     <!-- /.panel -->
 </div>
-@if (count($errors) > 0)
+@if (count($errors) > 0||session()->has('status_possition'))
 <script>
     swal({
         title: "เกิดข้อผิดพลาด",

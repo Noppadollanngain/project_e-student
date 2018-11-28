@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Possition;
 use App\Http\Requests\PossitionRequest;
+use Illuminate\Support\Facades\DB;
 
 class PossitionController extends Controller
 {
@@ -22,10 +23,28 @@ class PossitionController extends Controller
         $possition = Possition::paginate(5);
         $possition_count = Possition::count();
 
+        $wordlist = DB::table('admins')
+                            ->where('possition', '=', 1)
+                            ->get();
+        $wordcount = $wordlist->count();
+
+        $wordlist2 = DB::table('admins')
+                            ->where('possition', '=', 2)
+                            ->get();
+        $wordcount2 = $wordlist2->count();
+
+        $wordlist3 = DB::table('admins')
+                            ->where('possition', '=', 3)
+                            ->get();
+        $wordcount3 = $wordlist3->count();
+
         return view('admin.dashboard.list-possition',[
             'possition' => $possition,
             'count' => $possition_count,
-            'row' => 1
+            'row' => 1,
+            'num1' =>  $wordcount,
+            'num2' =>  $wordcount2,
+            'num3' =>  $wordcount3
         ]);
     }
 
@@ -85,10 +104,15 @@ class PossitionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = Possition::find($id);
-        $update->name = $request->title;
-        $update->save();
-        return redirect()->action('PossitionController@index');
+        if($request->title==null){
+            $request->session()->flash('status_possition', 'Username ถูกใช้แล้ว');
+            return back();
+        }else{
+            $update = Possition::find($id);
+            $update->name = $request->title;
+            $update->save();
+            return redirect()->action('PossitionController@index');
+        }
     }
 
     /**

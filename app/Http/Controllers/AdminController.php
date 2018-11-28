@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Admin;
 use App\Http\Requests\AdminRegisRequest;
 use Hash;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -77,5 +78,16 @@ class AdminController extends Controller
             $admin->save();
             return redirect()->action('AdminController@showAdmin');
         }
+    }
+
+    public function profile(){
+        $admin = DB::table('admins')
+                    ->join('possition', 'admins.possition', '=', 'possition.id')
+                    ->where('admins.id', '=', Auth::user()->id)
+                    ->select('admins.*', 'possition.name')
+                    ->get();
+        return view('admin.dashboard.profile',[
+            'admin' => $admin
+        ]);
     }
 }

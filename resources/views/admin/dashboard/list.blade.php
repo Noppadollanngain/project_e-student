@@ -20,12 +20,14 @@
                         </thead>
                         <tbody>
                             @foreach ($list as $lists)
-                            <tr>
-                                <td>{{ $num++ }}</td>
-                                <td>{{ $lists->fname.' '.$lists->lname }}</td>
-                                <td>{{ $lists->name }}</td>
-                                <td></td>
-                            </tr>
+                                @if ($lists->id!=Auth::user()->id)
+                                    <tr>
+                                        <td>{{ $num++ }}</td>
+                                        <td>{{ $lists->fname.' '.$lists->lname }}</td>
+                                        <td>{{ $lists->name }}</td>
+                                        <td></td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

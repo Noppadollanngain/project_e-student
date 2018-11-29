@@ -18,7 +18,7 @@
 
                         <div class="form-group">
                             <?= Form::submit('บันทึก', ['class' => 'btn btn-primary col-md-2 col-md-offset-8']); ?>
-                            <button type="reset" class="btn btn-danger col-md-2">ยกเลิก</button>
+                            <button onclick="window.location.href = '/admin/possition';" type="reset" class="btn btn-danger col-md-2">ยกเลิก</button>
                         </div>
 
                 {!! Form::close() !!}

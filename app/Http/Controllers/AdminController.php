@@ -9,6 +9,7 @@ use App\Http\Requests\AdminRegisRequest;
 use Hash;
 use Auth;
 use Image;
+use File;
 
 class AdminController extends Controller
 {
@@ -50,6 +51,7 @@ class AdminController extends Controller
     public function create(){
         $list_possition = DB::table('possition')
                             ->select('possition.name','possition.id')
+                            ->orderBy('id','ASC')
                             ->get();
         return view('admin.dashboard.regis-admin',[
             'possition' => $list_possition
@@ -105,5 +107,55 @@ class AdminController extends Controller
         return view('admin.dashboard.view-profile',[
             'admin' => $admin
         ]);
+    }
+
+    public function destroy($id){
+        $admin_del = Admin::find($id);
+        if ($admin_del->image != 'nopic.jpg') {
+            File::delete(public_path() . '\\images\\Profile\\' . $admin_del->image);
+        }
+        $admin_del->delete();
+        return redirect()->action('AdminController@showAdmin');
+    }
+
+    public function edit(){
+        $admin = DB::table('admins')
+                    ->join('possition', 'admins.possition', '=', 'possition.id')
+                    ->where('admins.id', '=', Auth::user()->id)
+                    ->select('admins.*', 'possition.name')
+                    ->get();
+        $list_possition = DB::table('possition')
+                    ->select('possition.name','possition.id')
+                    ->orderBy('id','ASC')
+                    ->get();
+
+        return view('admin.dashboard.edit-profile',[
+            'admin' => $admin,
+            'possition' => $list_possition
+        ]);
+    }
+
+    public function profileupdate(Request $request,$id){
+        $admin = Admin::find($id);
+        $admin->fname = $request->fname;
+        $admin->lname = $request->lname;
+        $admin->email = $request->mail;
+
+        if(Auth::user()->possition==1){
+            $admin->possition = $request->possition;
+        }
+
+        if ($request->hasFile('image')) {
+            File::delete(public_path() . '\\images\\Profile\\' . $admin->image);
+            $filename = str_random(10) . '_320x450.' . $request->file('image')->getClientOriginalExtension();
+            Image::make($request->file('image'))->resize(320,450)->save(public_path() . '/images/Profile/' . $filename);
+            $admin->image = $filename;
+            $admin->save();
+        }
+
+        $admin->save();
+
+        $request->session()->flash('statusupdate', 'ข้อมูลถูกอัพเดทแล้ว');
+        return redirect()->action('AdminController@edit');
     }
 }

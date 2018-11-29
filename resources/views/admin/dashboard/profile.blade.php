@@ -14,7 +14,7 @@
                 </a>
             </div>
             <div class="col-lg-8">
-                <h4>ข้อมูลส่วนตัว<i class="fa fa-tags"></i></h4>
+                <h4>ข้อมูลส่วนตัว <i class="fa fa-tags"></i></h4>
 
 
             <div class="form-group">

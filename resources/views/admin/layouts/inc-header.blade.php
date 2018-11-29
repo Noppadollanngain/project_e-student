@@ -6,7 +6,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="{{route('admin.profile')}}"><i class="fa fa-user fa-fw"></i> Admin Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="{{route('admin.profile_edit')}}"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="{{ route('admin.logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

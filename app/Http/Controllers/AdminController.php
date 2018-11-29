@@ -8,6 +8,7 @@ use App\Admin;
 use App\Http\Requests\AdminRegisRequest;
 use Hash;
 use Auth;
+use Image;
 
 class AdminController extends Controller
 {
@@ -56,7 +57,6 @@ class AdminController extends Controller
     }
 
     public function Addadmin(AdminRegisRequest $request){
-
         $person = Admin::where('username', '=',$request->username)->first();
 
         if($person != null){
@@ -75,6 +75,11 @@ class AdminController extends Controller
             $admin->username = $request->username;
             $admin->password = Hash::make($request->password);
             $admin->possition = $request->possition;
+            if ($request->hasFile('image')) {
+                $filename = str_random(10) . '_320x450.' . $request->file('image')->getClientOriginalExtension();
+                Image::make($request->file('image'))->resize(320,450)->save(public_path() . '/images/Profile/' . $filename);
+            }
+            $admin->image = $filename;
             $admin->save();
             return redirect()->action('AdminController@showAdmin');
         }
@@ -87,6 +92,17 @@ class AdminController extends Controller
                     ->select('admins.*', 'possition.name')
                     ->get();
         return view('admin.dashboard.profile',[
+            'admin' => $admin
+        ]);
+    }
+
+    public function viewprofile($id){
+        $admin = DB::table('admins')
+                    ->join('possition', 'admins.possition', '=', 'possition.id')
+                    ->where('admins.id', '=', $id)
+                    ->select('admins.*', 'possition.name')
+                    ->get();
+        return view('admin.dashboard.view-profile',[
             'admin' => $admin
         ]);
     }

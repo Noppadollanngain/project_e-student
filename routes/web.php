@@ -28,6 +28,9 @@ Route::prefix('admin')->group(function() {
     Route::get('/showadmin','AdminController@showAdmin')->name('admin.showadmin');
     Route::get('/addadmin','AdminController@create')->name('admin.addadmin');
     Route::resource('/possition', 'PossitionController')->name('index','possition');
-    Route::get('/regis', 'AdminController@Addadmin')->name('admin.regis');
+    Route::post('/regis', 'AdminController@Addadmin')->name('admin.regis');
     Route::get('/profile','AdminController@profile')->name('admin.profile');
+
+    Route::get('/viewprofile/{id}', 'AdminController@viewprofile')->name('admin.viewprofile');
+
   });

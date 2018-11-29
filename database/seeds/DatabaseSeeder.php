@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
         $admin->fname = 'Super';
         $admin->lname = 'Admin';
         $admin->email = 'Admin1@gmial.com';
+        $admin->image = 'Profile_320×450.jpg';
         $admin->username = 'Admin1';
         $admin->password = Hash::make('123456');
         $admin->possition = 1;

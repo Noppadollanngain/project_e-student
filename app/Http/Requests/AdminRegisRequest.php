@@ -31,6 +31,7 @@ class AdminRegisRequest extends FormRequest
             "possition" => 'required',
             "fname"=> 'required',
             "lname"=> 'required',
+            'image' => 'mimes:jpeg,jpg,png',
         ];
     }
 
@@ -43,6 +44,7 @@ class AdminRegisRequest extends FormRequest
             "mail.required"=> 'กรุณากรอกข้อมูล E-Mail',
             "fname.required"=> 'กรุณากรอกข้อมูลชื่อ',
             "lname.required"=> 'กรุณากรอกข้อมูลนามสุกล',
+            'image.mimes' => 'กรุณาเลือกไฟล์ภาพนามสกุล jpeg,jpg,png',
         ];
     }
 }

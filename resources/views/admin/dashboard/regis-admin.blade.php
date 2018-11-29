@@ -9,7 +9,7 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-        <form role="form" method="get" action="{{route('admin.regis')}}">
+            {!! Form::open(array('url' => 'admin/regis','files' => true)) !!}
                 <div class="form-group col-md-6">
                     <label>Username</label>
                     <input class="form-control" name="username" placeholder="username" value="{{ old('username') }}">
@@ -43,12 +43,16 @@
                         <label>นามสกุล</label>
                         <input class="form-control" name="lname" value="{{ old('lname') }}" placeholder="นามสกุล">
                 </div>
+                <div class="form-group col-md-6">
+                        <label>Image Profile</label>
+                        <input name="image" type="file">
+                    </div>
 
                 <div class="form-group col-md-12" style="margin-top:15px;">
                         <button type="submit" class="btn btn-success col-md-2 col-md-offset-8">Submit Button</button>
                         <button type="reset" class="btn btn-danger col-md-2">Reset Button</button>
                 </div>
-            </form>
+            {!! Form::close() !!}
 	</div>
 	<!-- /.col-lg-12 -->
 </div>

@@ -20,6 +20,7 @@ class CreateAdminsTable extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('email');
+            $table->string('image');
             $table->integer('possition')->unsigned();
             $table->foreign('possition')
                 ->references('id')

@@ -25,7 +25,11 @@
                                         <td>{{ $num++ }}</td>
                                         <td>{{ $lists->fname.' '.$lists->lname }}</td>
                                         <td>{{ $lists->name }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a class="btn btn-success" href="{{asset('/admin/viewprofile/'.$lists->id)}}">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endif
                             @endforeach

@@ -14,7 +14,7 @@
                 </a>
             </div>
             <div class="col-lg-8">
-                <h4>ข้อมูลส่วนตัว<i class="fa fa-tags"></i></h4>
+                <h4>ข้อมูลส่วนตัว <i class="fa fa-tags"></i></h4>
 
 
             <div class="form-group">
@@ -34,13 +34,13 @@
                 </div>
             </div>
             <div class="form-group">
-                    <div class="col-lg-2">
-                        <h4> ตำแหน่ง </h4>
-                    </div>
-                    <div class="col-lg-10">
-                        <h4>{{ $item->name }}</h4>
-                    </div>
+                <div class="col-lg-2">
+                    <h4> ตำแหน่ง </h4>
+                 </div>
+                <div class="col-lg-10">
+                    <h4>{{ $item->name }}</h4>
                 </div>
+            </div>
         @endforeach
         </div>
     </div>

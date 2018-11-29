@@ -8,6 +8,7 @@
             <h3>Profile Admin</h3>
         </div>
         <div class="col-lg-3 col-lg-offset-5">
+
             @if (Auth::user()->possition == 1)
                 <h3>
                     <a class="btn btn-warning" href="#">
@@ -15,6 +16,12 @@
                     </a>
                     <a onclick="delete_confrim({{$item->id}})" class="btn btn-danger" href="javascript::void(0)">
                         delete <i class="fa fa-trash-o"></i>
+                    </a>
+                </h3>
+            @else
+                <h3>
+                    <a class="btn btn-success" href="#">
+                        Active <i class="fa fa-check"></i>
                     </a>
                 </h3>
             @endif

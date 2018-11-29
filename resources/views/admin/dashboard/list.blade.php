@@ -26,7 +26,7 @@
                                         <td>{{ $lists->fname.' '.$lists->lname }}</td>
                                         <td>{{ $lists->name }}</td>
                                         <td>
-                                            <a class="btn btn-success" href="{{asset('/admin/viewprofile/'.$lists->id)}}">
+                                            <a class="btn btn-primary" href="{{asset('/admin/viewprofile/'.$lists->id)}}">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>

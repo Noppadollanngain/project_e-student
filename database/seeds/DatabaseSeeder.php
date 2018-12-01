@@ -33,9 +33,9 @@ class DatabaseSeeder extends Seeder
         $possition3->name = 'เจ้าหน้าที่รับเอกสาร';
 
         $type = new App\Typestudent();
-        $type->typename = 'รายใหม่เลื่อนชั้นปี';
+        $type->typename = 'รายใหม่';
         $type2 = new App\Typestudent();
-        $type2->typename = 'รายใหม่';
+        $type2->typename = 'รายใหม่เลื่อนชั้นปี';
         $type3 = new App\Typestudent();
         $type3->typename = 'รายเก่า';
         $type4 = new App\Typestudent();

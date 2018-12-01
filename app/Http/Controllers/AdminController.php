@@ -34,7 +34,7 @@ class AdminController extends Controller
     }
 
     public function showAdmin(){
-        $list_Admin = $users = DB::table('admins')
+        $list_Admin  = DB::table('admins')
                         ->join('possition', 'admins.possition', '=', 'possition.id')
                         ->select('admins.id','admins.fname','admins.lname', 'possition.name')
                         ->paginate(15);

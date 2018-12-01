@@ -34,5 +34,8 @@ Route::prefix('admin')->group(function() {
     Route::get('/viewprofile/{id}', 'AdminController@viewprofile')->name('admin.viewprofile');
     Route::get('/profile-edit', 'AdminController@edit')->name('admin.profile_edit');
     Route::post('/profile-edit/update/{id}', 'AdminController@profileupdate')->name('admin.profileupdate');
-    Route::get('/document', 'DocumentController@index');
+    Route::get('/document/รายใหม่', 'DocumentController@list1')->name('admin.documentlist1');
+    Route::get('/document/รายใหม่เลื่อนชั้นปี', 'DocumentController@list2')->name('admin.documentlist2');
+    Route::get('/document/รายเก่า', 'DocumentController@list3')->name('admin.documentlist3');
+    Route::get('/document/รายเก่าเกินหลักสูตร', 'DocumentController@list4')->name('admin.documentlist4');
   });

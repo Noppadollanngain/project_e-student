@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Documents extends Model
 {
-    protected $table = 'table_documentdata';
+    protected $table = 'documentdata';
 }

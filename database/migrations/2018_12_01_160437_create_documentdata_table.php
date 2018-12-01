@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableDocumentdata extends Migration
+class CreateDocumentdataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableDocumentdata extends Migration
      */
     public function up()
     {
-        Schema::create('table_documentdata', function (Blueprint $table) {
+        Schema::create('documentdata', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('student')->unsigned();
             $table->foreign('student')
@@ -22,7 +22,7 @@ class CreateTableDocumentdata extends Migration
             $table->integer('typestudent')->unsigned();
             $table->foreign('typestudent')
                 ->references('id')
-                ->on('table_typestudent');
+                ->on('typestudent');
            $table->integer('adminget')->unsigned();
             $table->foreign('adminget')
                 ->references('id')
@@ -48,6 +48,6 @@ class CreateTableDocumentdata extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_documentdata');
+        Schema::dropIfExists('documentdata');
     }
 }

@@ -34,4 +34,5 @@ Route::prefix('admin')->group(function() {
     Route::get('/viewprofile/{id}', 'AdminController@viewprofile')->name('admin.viewprofile');
     Route::get('/profile-edit', 'AdminController@edit')->name('admin.profile_edit');
     Route::post('/profile-edit/update/{id}', 'AdminController@profileupdate')->name('admin.profileupdate');
+    Route::get('/document', 'DocumentController@index');
   });

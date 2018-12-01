@@ -32,6 +32,15 @@ class DatabaseSeeder extends Seeder
         $possition3 = new App\Possition();
         $possition3->name = 'เจ้าหน้าที่รับเอกสาร';
 
+        $type = new App\Typestudent();
+        $type->typename = 'รายใหม่เลื่อนชั้นปี';
+        $type2 = new App\Typestudent();
+        $type2->typename = 'รายใหม่';
+        $type3 = new App\Typestudent();
+        $type3->typename = 'รายเก่า';
+        $type4 = new App\Typestudent();
+        $type4->typename = 'รายเก่าเกินหลักสูตร';
+
         $admin = new App\Admin();
         $admin->fname = 'Super';
         $admin->lname = 'Admin';
@@ -46,6 +55,10 @@ class DatabaseSeeder extends Seeder
         $possition->save();
         $possition2->save();
         $possition3->save();
+        $type->save();
+        $type2->save();
+        $type3->save();
+        $type4->save();
         $admin->save();
     }
 }

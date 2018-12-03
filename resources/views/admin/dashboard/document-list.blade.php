@@ -65,7 +65,14 @@
                                         @endif
                                     </td>
                                     <td>
-                                        ตรวจสอบแล้ว
+                                        @if ($lists->adminget == NULL)
+                                            <button type="button" class="btn btn-danger"> ยังไม่ได้ส่งเอกสาร </button>
+                                        @elseif($lists->adminget!=NULL && $lists->adminset==NULL)
+                                            <button type="button" class="btn btn-warning"> ยังไม่ได้ตวจสอบ </button>
+                                        @elseif($lists->adminset!=NULL)
+                                            <button type="button" class="btn btn-success"> ตรวจสอบแล้ว </button>
+                                        @endif
+                                        <a href="{{asset('admin/view-user/'.$lists->student)}}" class="btn btn-primary"><i class="fa fa-search"></i></a>
                                     </td>
                                 </tr>
 

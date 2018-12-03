@@ -69,4 +69,18 @@ class DocumentController extends Controller
         ]);
     }
 
+    public function view_user($id){
+        $list = DB::table('documentdata')
+                ->join('users', 'documentdata.student', '=', 'users.id')
+                ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
+                ->leftJoin('admins as adminsget', 'adminsget.id', '=', 'documentdata.adminget')
+                ->leftJoin('admins as adminsset', 'adminsset.id', '=', 'documentdata.adminset')
+                ->select('documentdata.*','users.*', 'typestudent.typename','adminsget.fname as getF','adminsget.lname as getL','adminsset.fname as setF','adminsset.lname as setL')
+                ->where('documentdata.student','=',$id)
+                ->get();
+        return view('admin.dashboard.view-user',[
+            'dataget' => $list
+        ]);
+    }
+
 }

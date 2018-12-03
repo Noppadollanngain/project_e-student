@@ -15,28 +15,31 @@ class CreateDocumentdataTable extends Migration
     {
         Schema::create('documentdata', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('student')->unsigned();
+            $table->integer('student')->unsigned()->nullable();
             $table->foreign('student')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('set null');;
             $table->integer('typestudent')->unsigned();
             $table->foreign('typestudent')
                 ->references('id')
                 ->on('typestudent');
-           $table->integer('adminget')->unsigned();
+           $table->integer('adminget')->nullable()->unsigned()->nullable();
             $table->foreign('adminget')
                 ->references('id')
-                ->on('admins');
-            $table->integer('adminset')->nullable()->unsigned();
+                ->on('admins')
+                ->onDelete('set null');
+            $table->integer('adminset')->nullable()->unsigned()->nullable();
             $table->foreign('adminset')
                 ->references('id')
-                ->on('admins');
+                ->on('admins')
+                ->onDelete('set null');
             //Document
-            $table->boolean('doc1');
-            $table->boolean('doc2');
-            $table->boolean('doc3');
-            $table->boolean('doc4');
-            $table->boolean('doc5');
+            $table->boolean('doc1')->default(0);
+            $table->boolean('doc2')->default(0);
+            $table->boolean('doc3')->default(0);
+            $table->boolean('doc4')->default(0);
+            $table->boolean('doc5')->default(0);
             $table->timestamps();
         });
     }

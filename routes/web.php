@@ -38,4 +38,5 @@ Route::prefix('admin')->group(function() {
     Route::get('/document/รายใหม่เลื่อนชั้นปี', 'DocumentController@list2')->name('admin.documentlist2');
     Route::get('/document/รายเก่า', 'DocumentController@list3')->name('admin.documentlist3');
     Route::get('/document/รายเก่าเกินหลักสูตร', 'DocumentController@list4')->name('admin.documentlist4');
+    route::get('/view-user/{id}','DocumentController@view_user')->name('admin.view-user');
   });

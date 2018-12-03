@@ -4,7 +4,7 @@
 <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Admin Active On System Total {{ $count }}
+                Admin Active On System Total {{ $count-1 }}
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">

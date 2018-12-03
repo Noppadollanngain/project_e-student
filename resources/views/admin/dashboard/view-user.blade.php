@@ -27,6 +27,20 @@
     </div>
 </div>
 <div class="row">
+        <div class="col-lg-2">
+           <h4 class="text-right">เลขที่สัญญา</h4>
+        </div>
+        <div class="col-lg-10">
+            <h4 class="text-left">
+                @if ($item->estd_id==NULL)
+                    ยังไม่มีเลขที่สัญญา
+                @else
+                    {{$item->estd_id}}
+                @endif
+            </h4>
+        </div>
+    </div>
+<div class="row">
     <div class="col-lg-2">
        <h4 class="text-right">E-mail</h4>
     </div>

@@ -34,11 +34,17 @@ Route::prefix('admin')->group(function() {
     Route::get('/viewprofile/{id}', 'AdminController@viewprofile')->name('admin.viewprofile');
     Route::get('/profile-edit', 'AdminController@edit')->name('admin.profile_edit');
     Route::post('/profile-edit/update/{id}', 'AdminController@profileupdate')->name('admin.profileupdate');
+
+    Route::get('/document/search/{id}', 'DocumentController@search_form_doc')->name('admin.document-search');
+    route::post('/document/search/word/{id}','DocumentController@search_word_doc')->name('admin.document-search-word');
     Route::get('/document/รายใหม่', 'DocumentController@list1')->name('admin.documentlist1');
     Route::get('/document/รายใหม่เลื่อนชั้นปี', 'DocumentController@list2')->name('admin.documentlist2');
     Route::get('/document/รายเก่า', 'DocumentController@list3')->name('admin.documentlist3');
     Route::get('/document/รายเก่าเกินหลักสูตร', 'DocumentController@list4')->name('admin.documentlist4');
+
     route::get('/view-user/{id}','DocumentController@view_user')->name('admin.view-user');
-    route::get('/search-user/{id}','DocumentController@search_form')->name('admin.search-user');
-    route::post('/search-user/word/{id}','DocumentController@search_word')->name('admin.search-word');
+    route::get('/search-user','DocumentController@search_form')->name('admin.search-user');
+    route::get('/search-user/{bool}','DocumentController@bool_return')->name('admin.search-bool');
+    route::post('/search-user/word/','DocumentController@search_word')->name('admin.search-word');
+
   });

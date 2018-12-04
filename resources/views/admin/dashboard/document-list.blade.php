@@ -1,6 +1,13 @@
 @extends('admin.layouts.template')
 @section('title','รายชื่อ')
 @section('content')
+<div class="row" style="margin:15px;">
+        <div class="col-lg-3 col-lg-offset-9">
+                <a href="{{asset('admin/document/search/'.$type)}}" class="btn btn-primary col-lg-12">
+                    ย้อนกลับไปหน้าค้นหา
+                </a>
+        </div>
+</div>
 <div class="row">
 	<div class="panel panel-default">
         <div class="panel-heading">
@@ -12,7 +19,8 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>ลำดับ</th>
+                            <th>รหัสนักศึกษา</th>
+                            <th>สัญญา</th>
                             <th>ชื่อ-นามสกุล</th>
                             <th>ประเภท</th>
                             <th>เอกสาร1</th>
@@ -26,7 +34,14 @@
                     <tbody>
                         @foreach ($list as $lists)
                                 <tr>
-                                    <td>{{ $num++ }}</td>
+                                    <td>{{ $lists->username }}</td>
+                                    <td>
+                                        @if ($lists->estd_id!=null)
+                                            {{ $lists->estd_id }}
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                     <td>{{ $lists->fname.' '.$lists->lname }}</td>
                                     <td>{{ $lists->typename }}</td>
                                     <td>

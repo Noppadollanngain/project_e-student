@@ -94,9 +94,9 @@ class DatabaseSeeder extends Seeder
         $type4->save();
         $admin->save();
         $document->save();
-        $document2->save();
+        //$document2->save();
         $document3->save();
-        $document4->save();
+        //$document4->save();
 
     }
 }

@@ -8,35 +8,21 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Document<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{route('admin.documentlist1')}}">รายใหม่</a>
+                                    <a href="{{asset('admin/document/search/1')}}">รายใหม่</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.documentlist2')}}">รายใหม่เลื่อนชั้นปี</a>
+                                    <a href="{{asset('admin/document/search/2')}}">รายใหม่เลื่อนชั้นปี</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.documentlist3')}}">รายเก่า</a>
+                                    <a href="{{asset('admin/document/search/3')}}">รายเก่า</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.documentlist4')}}">รายเก่าเกินหลักสูตร</a>
+                                    <a href="{{asset('admin/document/search/4')}}">รายเก่าเกินหลักสูตร</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Document Manage<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{asset('admin/search-user/1')}}">รายใหม่</a>
-                                </li>
-                                <li>
-                                    <a href="{{asset('admin/search-user/2')}}">รายใหม่เลื่อนชั้นปี</a>
-                                </li>
-                                <li>
-                                    <a href="{{asset('admin/search-user/3')}}">รายเก่า</a>
-                                </li>
-                                <li>
-                                    <a href="{{asset('admin/search-user/4')}}">รายเก่าเกินหลักสูตร</a>
-                                </li>
-                            </ul>
+                            <a href="{{route('admin.search-user')}}"><i class="fa fa-search fa-fw"></i> Document Manage</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-th-list fa-fw"></i> Admin Management<span class="fa arrow"></span></a>

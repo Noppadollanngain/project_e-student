@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Documents;
 use Auth;
 
 class DocumentController extends Controller
@@ -13,59 +14,58 @@ class DocumentController extends Controller
         $this->middleware('auth:admin');
     }
 
-    public function list1(){
-        $list = DB::table('documentdata')
-                ->join('users', 'documentdata.student', '=', 'users.id')
-                ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
-                ->select('documentdata.*','users.fname','users.lname', 'typestudent.typename')
-                ->where('documentdata.typestudent','=',1)
-                ->paginate(15);
-                //dd($list);
-        return view('admin.dashboard.document-list',[
-            'list' =>  $list,
-            'num' => 1
+    public function search_form_doc($id){
+        return view('admin.dashboard.form-search-doc',[
+            'type' => $id
         ]);
     }
 
-    public function list2(){
-        $list = DB::table('documentdata')
+    public function search_word_doc(Request $request,$id){
+        if($request->std_id){
+            $list = DB::table('documentdata')
                 ->join('users', 'documentdata.student', '=', 'users.id')
                 ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
-                ->select('documentdata.*','users.fname','users.lname', 'typestudent.typename')
-                ->where('documentdata.typestudent','=',2)
+                ->select('documentdata.*','users.estd_id','users.fname','users.lname','users.username', 'typestudent.typename')
+                ->where('documentdata.typestudent','=',$id)
+                ->where('users.username', 'like', '%' .$request->std_id. '%')
                 ->paginate(15);
-                //dd($list);
-        return view('admin.dashboard.document-list',[
-            'list' =>  $list,
-            'num' => 1
-        ]);
-    }
+        }
+        if($request->fname){
+            $list = DB::table('documentdata')
+                ->join('users', 'documentdata.student', '=', 'users.id')
+                ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
+                ->select('documentdata.*','users.estd_id','users.fname','users.lname','users.username', 'typestudent.typename')
+                ->where('documentdata.typestudent','=',$id)
+                ->where('users.fname', 'like', '%' .$request->fname. '%')
+                ->paginate(15);
+        }
+        if($request->lname){
+            $list = DB::table('documentdata')
+                ->join('users', 'documentdata.student', '=', 'users.id')
+                ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
+                ->select('documentdata.*','users.estd_id','users.fname','users.lname','users.username', 'typestudent.typename')
+                ->where('documentdata.typestudent','=',$id)
+                ->where('users.lname', 'like', '%' .$request->lname. '%')
+                ->paginate(15);
+        }
+        if($request->estd_id){
+            $list = DB::table('documentdata')
+                ->join('users', 'documentdata.student', '=', 'users.id')
+                ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
+                ->select('documentdata.*','users.estd_id','users.fname','users.lname','users.username', 'typestudent.typename')
+                ->where('documentdata.typestudent','=',$id)
+                ->where('users.estd_id', 'like', '%' .$request->estd_id. '%')
+                ->paginate(15);
+        }
+        if($request->std_id==null&&$request->fname==null&&$request->lname==null&&$request->estd_id==null){
+            $request->session()->flash('status_search_doc', 'ไม่ได้ระบุคำค้นหา');
+            return back();
+        }
 
-    public function list3(){
-        $list = DB::table('documentdata')
-                ->join('users', 'documentdata.student', '=', 'users.id')
-                ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
-                ->select('documentdata.*','users.fname','users.lname', 'typestudent.typename')
-                ->where('documentdata.typestudent','=',3)
-                ->paginate(15);
-                //dd($list);
         return view('admin.dashboard.document-list',[
             'list' =>  $list,
-            'num' => 1
-        ]);
-    }
-
-    public function list4(){
-        $list = DB::table('documentdata')
-                ->join('users', 'documentdata.student', '=', 'users.id')
-                ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
-                ->select('documentdata.*','users.fname','users.lname', 'typestudent.typename')
-                ->where('documentdata.typestudent','=',4)
-                ->paginate(15);
-                //dd($list);
-        return view('admin.dashboard.document-list',[
-            'list' =>  $list,
-            'num' => 1
+            'num' => 1,
+            'type' => $id
         ]);
     }
 
@@ -83,25 +83,57 @@ class DocumentController extends Controller
         ]);
     }
 
-    public function search_form($id){
-        return view('admin.dashboard.form-search',[
-            'type' => $id
+    public function search_form(){
+        return view('admin.dashboard.form-search');
+    }
+
+    public function search_word(Request $request){
+        if($request->std_id){
+            $list = DB::table('users')
+                    ->where('users.username', 'like', '%' .$request->std_id. '%')
+                    ->orderBy('users.id','ASC')
+                    ->paginate(15);
+        }
+        if($request->fname){
+            $list = DB::table('users')
+                    ->where('users.fname', 'like', '%' .$request->fname. '%')
+                    ->orderBy('users.id','ASC')
+                    ->paginate(15);
+        }
+        if($request->lname){
+            $list = DB::table('users')
+                    ->where('users.lname', 'like', '%' .$request->lname. '%')
+                    ->orderBy('users.id','ASC')
+                    ->paginate(15);
+        }
+        if($request->estd_id){
+            $list = DB::table('users')
+                    ->where('users.estd_id', 'like', '%' .$request->estd_id. '%')
+                    ->orderBy('users.id','ASC')
+                    ->paginate(15);
+        }
+        if($request->std_id==null&&$request->fname==null&&$request->lname==null&&$request->estd_id==null){
+            $request->session()->flash('status_search_doc', 'ไม่ได้ระบุคำค้นหา');
+            return back();
+        }
+
+        return view('admin.dashboard.document-manage',[
+            'list' =>  $list,
         ]);
     }
 
-    public function search_word(Request $request,$id){
-        if($request->std_id){
-            return $request->std_id;
+    public static function bool_return($id){
+        $data = DB::table('documentdata')
+            ->where('student','=',$id)
+            ->get();
+        $data_get = $data->count();
+        //dd($data);
+        if($data_get!=0){
+            return true;
+        }elseif($data_get==0){
+            return false;
         }
-        if($request->fname){
-            return $request->fname;
-        }
-        if($request->lname){
-            return $request->lname;
-        }
-        if($request->estd_id){
-            return $request->estd_id;
-        }
+
     }
 
 }

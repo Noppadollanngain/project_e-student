@@ -1,9 +1,9 @@
 @extends('admin.layouts.template')
-@section('title','Admin Dashboard')
+@section('title','Search Document')
 @section('content')
 <div class="row">
 	<div class="col-lg-12">
-		<h3 class="page-header">ค้นหานักศึกษา <span style="color:red;font-size:1.5rem;">** เลือก 1 อย่างในการค้นหา</span></h3>
+		<h3 class="page-header">ค้นหารายการการส่งเอกสาร <span style="color:red;font-size:1.5rem;">** เลือก 1 อย่างในการค้นหา</span></h3>
 	</div>
 </div>
 <div class="row">
@@ -11,7 +11,7 @@
         <h4 class="text-right"> คำค้นหารหัส นศ.</h4>
     </div>
     <div class="col-lg-9">
-    {!! Form::open(array('url' => 'admin/search-user/word/')) !!}
+    {!! Form::open(array('url' => 'admin/document/search/word/'.$type)) !!}
         <div class="form-group input-group">
             <input type="text" class="form-control" name="std_id">
             <span class="input-group-btn">
@@ -26,7 +26,7 @@
         <h4 class="text-right"> คำค้นหาจากชื่อ</h4>
     </div>
     <div class="col-lg-9">
-        {!! Form::open(array('url' => 'admin/search-user/word/')) !!}
+        {!! Form::open(array('url' => 'admin/document/search/word/'.$type)) !!}
             <div class="form-group input-group">
                 <input type="text" class="form-control" name="fname">
                 <span class="input-group-btn">
@@ -41,7 +41,7 @@
         <h4 class="text-right"> คำค้นหาจากนามสกุล</h4>
     </div>
     <div class="col-lg-9">
-        {!! Form::open(array('url' => 'admin/search-user/word/')) !!}
+        {!! Form::open(array('url' => 'admin/document/search/word/'.$type)) !!}
             <div class="form-group input-group">
                 <input type="text" class="form-control" name="lname">
                 <span class="input-group-btn">
@@ -56,7 +56,7 @@
         <h4 class="text-right"> คำค้นหาจากเลขที่สัญญา</h4>
     </div>
     <div class="col-lg-9">
-        {!! Form::open(array('url' => 'admin/search-user/word/')) !!}
+        {!! Form::open(array('url' => 'admin/document/search/word/'.$type)) !!}
             <div class="form-group input-group">
                 <input type="text" class="form-control" name="estd_id">
                 <span class="input-group-btn">

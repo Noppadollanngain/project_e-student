@@ -19,7 +19,7 @@ class CreateDocumentdataTable extends Migration
             $table->foreign('student')
                 ->references('id')
                 ->on('users')
-                ->onDelete('set null');;
+                ->onDelete('cascade');;
             $table->integer('typestudent')->unsigned();
             $table->foreign('typestudent')
                 ->references('id')

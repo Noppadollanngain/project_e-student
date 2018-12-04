@@ -22,6 +22,23 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Document Manage<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{asset('admin/search-user/1')}}">รายใหม่</a>
+                                </li>
+                                <li>
+                                    <a href="{{asset('admin/search-user/2')}}">รายใหม่เลื่อนชั้นปี</a>
+                                </li>
+                                <li>
+                                    <a href="{{asset('admin/search-user/3')}}">รายเก่า</a>
+                                </li>
+                                <li>
+                                    <a href="{{asset('admin/search-user/4')}}">รายเก่าเกินหลักสูตร</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-th-list fa-fw"></i> Admin Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

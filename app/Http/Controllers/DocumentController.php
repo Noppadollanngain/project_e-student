@@ -83,4 +83,25 @@ class DocumentController extends Controller
         ]);
     }
 
+    public function search_form($id){
+        return view('admin.dashboard.form-search',[
+            'type' => $id
+        ]);
+    }
+
+    public function search_word(Request $request,$id){
+        if($request->std_id){
+            return $request->std_id;
+        }
+        if($request->fname){
+            return $request->fname;
+        }
+        if($request->lname){
+            return $request->lname;
+        }
+        if($request->estd_id){
+            return $request->estd_id;
+        }
+    }
+
 }

@@ -39,4 +39,6 @@ Route::prefix('admin')->group(function() {
     Route::get('/document/รายเก่า', 'DocumentController@list3')->name('admin.documentlist3');
     Route::get('/document/รายเก่าเกินหลักสูตร', 'DocumentController@list4')->name('admin.documentlist4');
     route::get('/view-user/{id}','DocumentController@view_user')->name('admin.view-user');
+    route::get('/search-user/{id}','DocumentController@search_form')->name('admin.search-user');
+    route::post('/search-user/word/{id}','DocumentController@search_word')->name('admin.search-word');
   });

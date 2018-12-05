@@ -88,8 +88,8 @@
             <input type="checkbox" value="1" name="doc1" id="fancy-checkbox-doc1" autocomplete="off" />
             <div class="[ btn-group ]">
                 <label for="fancy-checkbox-doc1" class="[ btn btn-primary ]">
-                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                    <span> </span>
+                        <span class="fa fa-check"></span>
+                        <span class="fa fa-times"> </span>
                 </label>
                 <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
                     เอกสารลำดับ 1
@@ -100,8 +100,8 @@
             <input type="checkbox" value="1" name="doc2" id="fancy-checkbox-doc2" autocomplete="off" />
             <div class="[ btn-group ]">
                 <label for="fancy-checkbox-doc2" class="[ btn btn-primary ]">
-                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                    <span> </span>
+                        <span class="fa fa-check"></span>
+                        <span class="fa fa-times"> </span>
                 </label>
                 <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
                         เอกสารลำดับ 2
@@ -112,8 +112,8 @@
             <input type="checkbox" value="1" name="doc3" id="fancy-checkbox-doc3" autocomplete="off" />
             <div class="[ btn-group ]">
                 <label for="fancy-checkbox-doc3" class="[ btn btn-primary ]">
-                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                    <span></span>
+                        <span class="fa fa-check"></span>
+                        <span class="fa fa-times"> </span>
                 </label>
                 <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
                     เอกสารลำดับ 3
@@ -124,8 +124,8 @@
             <input type="checkbox" value="1" name="doc4" id="fancy-checkbox-doc4" autocomplete="off" />
             <div class="[ btn-group ]">
                 <label for="fancy-checkbox-doc4" class="[ btn btn-primary ]">
-                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                    <span> </span>
+                        <span class="fa fa-check"></span>
+                        <span class="fa fa-times"> </span>
                 </label>
                 <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
                     เอกสารลำดับ 4
@@ -136,8 +136,8 @@
             <input type="checkbox" value="1" name="doc5" id="fancy-checkbox-doc5" autocomplete="off" />
             <div class="[ btn-group ]">
                 <label for="fancy-checkbox-doc5" class="[ btn btn-primary ]">
-                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                    <span> </span>
+                        <span class="fa fa-check"></span>
+                        <span class="fa fa-times"> </span>
                 </label>
                 <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
                     เอกสารลำดับ 5

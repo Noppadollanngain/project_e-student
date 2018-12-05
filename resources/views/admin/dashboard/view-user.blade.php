@@ -1,13 +1,20 @@
-
-
-
 @extends('admin.layouts.template')
 @section('title','Data user')
 @section('content')
 <div class="row">
-	<div class="col-lg-12">
-		<h3 class="page-header">ข้อมูลนักศึกษา</h3>
-	</div>
+	<div class="col-lg-12 page-header">
+		<h3>
+            <div class="col-lg-3">
+                ข้อมูลนักศึกษา
+            </div>
+            <div class="col-lg-2 col-lg-offset-5">
+                <a href="{{ asset('admin') }}" class="btn btn-success">ยืนยันการตรวจ</a>
+            </div>
+            <div class="col-lg-2">
+                <a href="{{ asset('admin') }}" class="btn btn-danger">กลับหน้าหลัก</a>
+            </div>
+        </h3>
+    </div>
 </div>
 @foreach ($dataget as $item)
 <div class="row">

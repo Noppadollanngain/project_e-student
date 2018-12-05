@@ -45,5 +45,6 @@ Route::prefix('admin')->group(function() {
     route::get('/create-document/{id}','DocumentController@create_document')->name('admin.create-doc');
     route::get('/update-document/{id}','DocumentController@update_document')->name('admin.update-doc');
     route::post('/document-create/{id}','DocumentController@document_create')->name('admin.doc-create');
+    route::post('/document-update/{id}','DocumentController@document_update')->name('admin.doc-update');
 
   });

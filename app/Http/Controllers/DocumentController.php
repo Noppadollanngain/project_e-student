@@ -152,7 +152,23 @@ class DocumentController extends Controller
     }
 
     public function update_document($id){
-        return view('admin.dashboard.update-doc');
+        $list = DB::table('documentdata')
+                ->join('users', 'documentdata.student', '=', 'users.id')
+                ->join('typestudent', 'typestudent.id', '=', 'documentdata.typestudent')
+                ->leftJoin('admins as adminsget', 'adminsget.id', '=', 'documentdata.adminget')
+                ->leftJoin('admins as adminsset', 'adminsset.id', '=', 'documentdata.adminset')
+                ->select('documentdata.*','users.*', 'typestudent.typename','adminsget.fname as getF','adminsget.lname as getL')
+                ->where('documentdata.student','=',$id)
+                ->get();
+        $list_possition = DB::table('typestudent')
+                ->select('typestudent.typename','typestudent.id')
+                ->orderBy('id','ASC')
+                ->get();
+        return view('admin.dashboard.update-doc',[
+            'data' => $list,
+            'id' => $id,
+            'possition' => $list_possition
+        ]);
     }
 
     public function document_create(Request $request,$id){
@@ -161,22 +177,6 @@ class DocumentController extends Controller
             $request->session()->flash('status_search_doc', 'ไม่ได้ระบุประเภท');
             return back();
         }
-
-        /*if($request->doc1==null){
-            $request->$doc1 = 0;
-        }
-        if($request->doc2==null){
-            $request->$doc2 = 0;
-        }
-        if($request->doc13==null){
-            $request->$doc3 = 0;
-        }
-        if($request->doc4==null){
-            $request->$doc4 = 0;
-        }
-        if($request->doc5==null){
-            $request->$doc5 = 0;
-        }*/
 
         $new = new Documents();
         $new->student = $id;
@@ -189,6 +189,29 @@ class DocumentController extends Controller
         $new->doc5 = $request->doc5;
 
         $new->save();
+        return redirect()->route('admin.view-user',[
+            'id' => $id
+        ]);
+    }
+
+    public function document_update(Request $request,$id){
+
+       // dd($request);
+
+        if($request->type==0){
+            $request->session()->flash('status_search_doc', 'ไม่ได้ระบุประเภท');
+            return back();
+        }
+
+        $new = Documents::where('student','=',$id)
+                    ->update([
+                        'doc1' => $request->doc1,
+                        'doc2' => $request->doc2,
+                        'doc3' => $request->doc3,
+                        'doc4' => $request->doc4,
+                        'doc5' => $request->doc5,
+                        'adminget' => Auth::user()->id
+                    ]);
         return redirect()->route('admin.view-user',[
             'id' => $id
         ]);

@@ -1,5 +1,5 @@
 @extends('admin.layouts.template')
-@section('title','Admin Dashboard')
+@section('title','Search User')
 @section('content')
 <div class="row">
 	<div class="col-lg-12">

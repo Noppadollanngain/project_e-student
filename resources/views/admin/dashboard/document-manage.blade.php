@@ -49,7 +49,11 @@
                                         @endif
                                     </td>
                                     <td>
-
+                                        @if (DocumentController::bool_return($lists->id)==true)
+                                            <a href="{{route('admin.update-doc',[ 'id' => $lists->id ])}}" class="btn btn-warning">รับเอกสาร</a>
+                                        @elseif(DocumentController::bool_return($lists->id)==false)
+                                            <a href="{{route('admin.create-doc',[ 'id' => $lists->id ])}}" class="btn btn-warning">รับเอกสาร</a>
+                                        @endif
                                     </td>
                                 </tr>
 

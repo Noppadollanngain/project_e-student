@@ -47,4 +47,8 @@ Route::prefix('admin')->group(function() {
     route::post('/document-create/{id}','DocumentController@document_create')->name('admin.doc-create');
     route::post('/document-update/{id}','DocumentController@document_update')->name('admin.doc-update');
 
+    Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
+    Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
   });

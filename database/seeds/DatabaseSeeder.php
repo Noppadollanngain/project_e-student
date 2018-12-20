@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
         $type3 = new App\Typestudent();
         $type3->typename = 'รายเก่า';
         $type4 = new App\Typestudent();
-        $type4->typename = 'รายเก่าเกินหลักสูตร';
+        $type4->typename = 'ยกเลิกกูยืม';
 
         $admin = new App\Admin();
         $admin->fname = 'Super';

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Documents;
 use Auth;
+use App\Http\Controllers\FirebaseController;
 
 class DocumentController extends Controller
 {
@@ -178,6 +179,8 @@ class DocumentController extends Controller
             return back();
         }
 
+        FirebaseController::create($id,$request->doc1,$request->doc2,$request->doc3,$request->doc4,$request->doc5,$request->type);
+
         $new = new Documents();
         $new->student = $id;
         $new->typestudent = $request->type;
@@ -202,6 +205,8 @@ class DocumentController extends Controller
             $request->session()->flash('status_search_doc', 'ไม่ได้ระบุประเภท');
             return back();
         }
+
+        FirebaseController::update($id,$request->doc1,$request->doc2,$request->doc3,$request->doc4,$request->doc5,$request->type);
 
         $new = Documents::where('student','=',$id)
                     ->update([

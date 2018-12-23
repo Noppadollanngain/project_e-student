@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $user->email = 'noppadol@gmial.com';
         $user->username = '58543206016-8';
         $user->password = Hash::make('123456');
+        $user->password_firebase = '123456';
 
         $user2 = new App\User();
         $user2->fname = 'Noppadol2';
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $user2->email = 'noppadol2@gmial.com';
         $user2->username = '58543206016-9';
         $user2->password = Hash::make('000000');
+        $user2->password_firebase = '000000';
 
         $user3 = new App\User();
         $user3->fname = 'Noppadol3';
@@ -31,6 +33,9 @@ class DatabaseSeeder extends Seeder
         $user3->email = 'noppadol3@gmial.com';
         $user3->username = '58543206016-7';
         $user3->password = Hash::make('456789');
+        $user3->password_firebase = '456789';
+
+
 
         $user4 = new App\User();
         $user4->fname = 'Noppadol4';
@@ -38,7 +43,7 @@ class DatabaseSeeder extends Seeder
         $user4->email = 'noppadol4@gmial.com';
         $user4->username = '58543206016-6';
         $user4->password = Hash::make('789654');
-
+        $user4->password_firebase = '789654';
 
         $possition = new App\Possition();
         $possition->name = 'เจ้าหน้าที่ระดับสูง';

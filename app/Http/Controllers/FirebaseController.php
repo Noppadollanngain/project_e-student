@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Kreait\Firebase;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
+use Illuminate\Support\Facades\Crypt;
+use Hash;
 
 class FirebaseController extends Controller
 {
@@ -145,8 +147,23 @@ class FirebaseController extends Controller
         //
     }
 
-    public function store_backend_username($id)
+    public function store_backend_username()
     {
+        $encrypted = Crypt::encryptString('Hello world.');
+
+        $datatest = Hash::make('123456');
+        $decrypted = Crypt::decryptString($encrypted);
+        $datatest_de = Hash::check('123456', $datatest);
+
+
+
+        return [
+            'Crypt_en' => $encrypted,
+            'Crypt_de' => $decrypted,
+            'Hash_en' => $datatest,
+            'Hash_ch' => $datatest_de
+        ];
+
         /*DB::table('users')
                     ->select('username')
                     ->orderBy('users.id','ASC')

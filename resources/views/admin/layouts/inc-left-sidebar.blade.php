@@ -16,9 +16,6 @@
                                 <li>
                                     <a href="{{asset('admin/document/search/3')}}">รายเก่า</a>
                                 </li>
-                                <li>
-                                    <a href="{{asset('admin/document/search/4')}}">รายเก่าเกินหลักสูตร</a>
-                                </li>
                             </ul>
                         </li>
                         <li>

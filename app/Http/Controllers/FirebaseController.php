@@ -149,34 +149,6 @@ class FirebaseController extends Controller
 
     public function store_backend_username()
     {
-        $encrypted = Crypt::encryptString('Hello world.');
 
-        $datatest = Hash::make('123456');
-        $decrypted = Crypt::decryptString($encrypted);
-        $datatest_de = Hash::check('123456', $datatest);
-
-
-
-        return [
-            'Crypt_en' => $encrypted,
-            'Crypt_de' => $decrypted,
-            'Hash_en' => $datatest,
-            'Hash_ch' => $datatest_de
-        ];
-
-        /*DB::table('users')
-                    ->select('username')
-                    ->orderBy('users.id','ASC')
-                    ->get();
-        /*$serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/test-project-9d73f-firebase-adminsdk-brci2-d720a70bbf.json');
-        $firebase = (new Factory)->withServiceAccount($serviceAccount)
-                                 ->withDatabaseUri('https://test-project-9d73f.firebaseio.com')
-                                 ->create();
-        $database = $firebase->getDatabase();
-        $newPost = $database->getReference('Users/Username/'.$id)
-                             ->set([
-                                'username' => $doc1,
-                                'password' => $doc2,
-                             ]);*/
     }
 }

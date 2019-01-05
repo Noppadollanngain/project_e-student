@@ -432,6 +432,7 @@ class ComposerStaticInitbae8e0631d3635ecbf72fc43df4f9e95
 
     public static $classMap = array (
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
+        'App\\Console\\Commands\\FirebaseConsole' => __DIR__ . '/../..' . '/app/Console/Commands/FirebaseConsole.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Documents' => __DIR__ . '/../..' . '/app/Documents.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -446,6 +447,7 @@ class ComposerStaticInitbae8e0631d3635ecbf72fc43df4f9e95
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DocumentController' => __DIR__ . '/../..' . '/app/Http/Controllers/DocumentController.php',
+        'App\\Http\\Controllers\\FirebaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/FirebaseController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PossitionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PossitionController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',

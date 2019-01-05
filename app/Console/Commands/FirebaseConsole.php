@@ -44,7 +44,7 @@ class FirebaseConsole extends Command
      */
     public function handle()
     {
-        /*$serviceAccount = ServiceAccount::fromJsonFile('App\Http\Controllers/test-project-9d73f-firebase-adminsdk-brci2-d720a70bbf.json');
+        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/test-project-9d73f-firebase-adminsdk-brci2-d720a70bbf.json');
         $firebase = (new Factory)->withServiceAccount($serviceAccount)
                                  ->withDatabaseUri('https://test-project-9d73f.firebaseio.com')
                                  ->create();
@@ -61,9 +61,7 @@ class FirebaseConsole extends Command
                                 'password' => $dataset->password_firebase,
                                 'email' => $dataset->email
                              ]);
-        }*/
-
-        echo "test";
+        }
 
     }
 }

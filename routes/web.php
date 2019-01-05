@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
-Route::get('storefirebase','FirebaseController@store_backend_username');
+//Route::get('storefirebase','FirebaseController@store_backend_username');
 //Route::get('firebase','FirebaseController@create');
 
 Route::prefix('admin')->group(function() {

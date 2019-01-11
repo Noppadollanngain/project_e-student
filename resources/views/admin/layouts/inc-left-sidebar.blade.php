@@ -21,6 +21,11 @@
                         <li>
                             <a href="{{route('admin.search-user')}}"><i class="fa fa-search fa-fw"></i> Document Manage</a>
                         </li>
+                        @if (Auth::user()->possition==1)
+                        <li>
+                            <a href="{{route('admin.news')}}"><i class="fa fa-envelope fa-fw"></i> News</a>
+                        </li>
+                        @endif
                         <li>
                             <a href="#"><i class="fa fa-th-list fa-fw"></i> Admin Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

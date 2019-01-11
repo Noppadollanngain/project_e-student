@@ -156,3 +156,18 @@
 </div>
 @endforeach
 @endsection
+
+@section('scripts')
+    @if (session()->has('status_doc_success'))
+    <script>
+        swal({
+            title: "บันทึก",
+            text: "<?php  echo session()->get('status_doc_success');   ?>",
+            timer: 2000,
+            type: 'success',
+            showConfirmButton: false
+        });
+    </script>
+    @endif
+@endsection
+

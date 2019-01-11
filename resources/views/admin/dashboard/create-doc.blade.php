@@ -65,6 +65,8 @@
 
 {!! Form::open(array('url' => 'admin/document-create/'.$id)) !!}
 <div class="row">
+    @if (Auth::user()->possition==1)
+
     <div class="col-lg-2">
         <h4 class="text-right">เลือกประเภท</h4>
     </div>
@@ -73,11 +75,15 @@
             <select class="form-control" name="type">
                 <option value="0">เลือกประเภท</option>
                 @foreach ($possition as $lists)
-                    <option value="{{$lists->id}}">{{$lists->typename}}</option>
+                    @if ($lists->id!=5)
+                        <option value="{{$lists->id}}">{{$lists->typename}}</option>
+                    @endif
                 @endforeach
             </select>
         </div>
     </div>
+
+    @endif
 </div>
 <div class="row">
     <div class="col-lg-2">

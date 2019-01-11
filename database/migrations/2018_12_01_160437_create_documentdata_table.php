@@ -24,7 +24,7 @@ class CreateDocumentdataTable extends Migration
             $table->foreign('typestudent')
                 ->references('id')
                 ->on('typestudent');
-           $table->integer('adminget')->nullable()->unsigned()->nullable();
+            $table->integer('adminget')->nullable()->unsigned()->nullable();
             $table->foreign('adminget')
                 ->references('id')
                 ->on('admins')

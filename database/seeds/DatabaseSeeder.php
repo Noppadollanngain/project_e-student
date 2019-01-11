@@ -60,6 +60,8 @@ class DatabaseSeeder extends Seeder
         $type3->typename = 'รายเก่า';
         $type4 = new App\Typestudent();
         $type4->typename = 'ยกเลิกกูยืม';
+        $type5 = new App\Typestudent();
+        $type5->typename = 'ทั้งหมด';
 
         $admin = new App\Admin();
         $admin->fname = 'Super';
@@ -97,6 +99,7 @@ class DatabaseSeeder extends Seeder
         $type2->save();
         $type3->save();
         $type4->save();
+        $type5->save();
         $admin->save();
         $document->save();
         //$document2->save();

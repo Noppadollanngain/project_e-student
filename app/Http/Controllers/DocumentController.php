@@ -192,6 +192,9 @@ class DocumentController extends Controller
         $new->doc5 = $request->doc5;
 
         $new->save();
+
+        $request->session()->flash('status_doc_success', 'บันทึกข้อมูลสำเร็จ');
+
         return redirect()->route('admin.view-user',[
             'id' => $id
         ]);
@@ -217,6 +220,8 @@ class DocumentController extends Controller
                         'doc5' => $request->doc5,
                         'adminget' => Auth::user()->id
                     ]);
+
+        $request->session()->flash('status_doc_success', 'บันทึกข้อมูลสำเร็จ');
         return redirect()->route('admin.view-user',[
             'id' => $id
         ]);

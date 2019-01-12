@@ -16,14 +16,20 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('status');
             $table->integer('admin_create')->nullable()->unsigned()->nullable();
             $table->foreign('admin_create')
                 ->references('id')
                 ->on('admins')
                 ->onDelete('set null');
+            $table->integer('admin_send')->nullable()->unsigned()->nullable();
+            $table->foreign('admin_send')
+                ->references('id')
+                ->on('admins')
+                ->onDelete('set null');
             $table->string('header');
             $table->text('message');
-            $table->string('PDF');
+            $table->string('image');
             $table->integer('typestudent')->unsigned();
             $table->foreign('typestudent')
                 ->references('id')

@@ -57,4 +57,6 @@ Route::prefix('admin')->group(function() {
     Route::get('News','NewsController@NewShowList')->name('admin.news');
     Route::get('News/create_form','NewsController@formcreatenew')->name('admin.news.create');
     Route::post('News/create_set','NewsController@createnew')->name('admin.news.create.set');
+    Route::get('News/edit/{id}','NewsController@edit')->name('admin.news.edit');
+    Route::post('News/updatenews/{id}','NewsController@updatenews')->name('admin.news.update');
 });

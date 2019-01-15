@@ -13,7 +13,7 @@
         </div>
     </div>
     @foreach ($data as $item)
-    <a href="" style="color:#303030">
+    <a href="/admin/News/edit/{{$item->id}}" style="color:#303030">
         <div class="col-lg-12">
             <div @if ($item->status!=0)
                     class="panel panel-info"
@@ -26,12 +26,24 @@
                             {{$item->header}}
                         </div>
                         <div class="col-lg-4">
-                            สร้างเมื่อ {{$item->create_message}}
+                            แก้ไขล่างสุด {{$item->updated_at}}
                         </div>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <p>{{$item->message}}</p>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <img src="{{asset('/images/News/'.$item->image)}}" height="100%" width="100%">
+                        </div>
+                        <div class="col-lg-10">
+                            <p>{{$item->message}}</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-lg-12">
+                            ประเภทนักศึกษา : {{$item->typename}}
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <div class="row">
@@ -64,4 +76,17 @@
         {!! $data->render()  !!}
     </div>
 </div>
+@endsection
+@section('scripts')
+    @if (session()->has('statuscreate'))
+    <script>
+        swal({
+            title: "Success !",
+            text: "<?php  echo session()->get('statuscreate');   ?>",
+            icon: "success",
+            timer: 2000,
+            showConfirmButton: false
+        });
+    </script>
+    @endif
 @endsection

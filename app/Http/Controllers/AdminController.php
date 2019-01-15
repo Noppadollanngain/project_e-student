@@ -150,7 +150,6 @@ class AdminController extends Controller
             $filename = str_random(10) . '_320x450.' . $request->file('image')->getClientOriginalExtension();
             Image::make($request->file('image'))->resize(320,450)->save(public_path() . '/images/Profile/' . $filename);
             $admin->image = $filename;
-            $admin->save();
         }
 
         $admin->save();

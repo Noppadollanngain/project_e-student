@@ -16,8 +16,16 @@
             <textarea name="message" class="form-control" rows="5"></textarea>
         </div>
         <div class="form-group">
+            <select class="form-control" name="type">
+                <option value="0">เลือกประเภท</option>
+                @foreach ($possition as $lists)
+                    <option value="{{$lists->id}}">{{$lists->typename}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label>เลือกไฟล์ภาพ</label>
-            <input name="images" type="file">
+            <input name="image" type="file">
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-8">
@@ -27,4 +35,17 @@
         </div>
     {!! Form::close() !!}
 </div>
+@endsection
+@section('scripts')
+    @if (session()->has('statuscreate'))
+    <script>
+        swal({
+            title: "Error !",
+            text: "<?php  echo session()->get('statuscreate');   ?>",
+            icon: "error",
+            timer: 2000,
+            showConfirmButton: false
+        });
+    </script>
+    @endif
 @endsection

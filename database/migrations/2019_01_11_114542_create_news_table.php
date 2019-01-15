@@ -30,12 +30,12 @@ class CreateNewsTable extends Migration
             $table->string('header');
             $table->text('message');
             $table->string('image');
-            $table->integer('typestudent')->unsigned();
+            $table->integer('typestudent')->nullable()->unsigned();
             $table->foreign('typestudent')
                 ->references('id')
                 ->on('typestudent');
-            $table->timestamp('create_message')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('send_message')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
     }
 

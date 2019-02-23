@@ -68,10 +68,10 @@
        <h4 class="text-right">รายการเอกสาร</h4>
     </div>
     <div class="col-lg-10">
-        <div class="col-lg-3">
-            <h4 class="text-left">เอกสารที่ 1</h4>
+        <div class="col-lg-5">
+            <h4 class="text-left">ส่งเอกสารขอกู้ยืมเงินกองทุนฯ</h4>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-7">
             <h4 class="text-left">
                 @if ($item->doc1==1)
                     ส่งเเล้ว
@@ -80,10 +80,10 @@
                 @endif
             </h4>
         </div>
-        <div class="col-lg-3">
-            <h4 class="text-left">เอกสารที่ 2</h4>
+        <div class="col-lg-5">
+            <h4 class="text-left">ส่งสัญญากู้ยืมเงินกองทุนฯ</h4>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-7">
             <h4 class="text-left">
                 @if ($item->doc2==1)
                     ส่งเเล้ว
@@ -92,38 +92,14 @@
                 @endif
             </h4>
         </div>
-        <div class="col-lg-3">
-            <h4 class="text-left">เอกสารที่ 3</h4>
+        <div class="col-lg-5">
+            <h4 class="text-left">ลงชื่อในใบยืนยันค่าเล่าเรียน / ค่าครองชีพ</h4>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-7">
             <h4 class="text-left">
                 @if ($item->doc3==1)
                     ส่งเเล้ว
                 @elseif($item->doc3==0)
-                    ยังไม่ได้ส่ง
-                @endif
-            </h4>
-        </div>
-        <div class="col-lg-3">
-            <h4 class="text-left">เอกสารที่ 4</h4>
-        </div>
-        <div class="col-lg-9">
-            <h4 class="text-left">
-                @if ($item->doc4==1)
-                    ส่งเเล้ว
-                @elseif($item->doc4==0)
-                    ยังไม่ได้ส่ง
-                @endif
-            </h4>
-        </div>
-        <div class="col-lg-3">
-            <h4 class="text-left">เอกสารที่ 5</h4>
-        </div>
-        <div class="col-lg-9">
-            <h4 class="text-left">
-                @if ($item->doc5==1)
-                    ส่งเเล้ว
-                @elseif($item->doc5==0)
                     ยังไม่ได้ส่ง
                 @endif
             </h4>

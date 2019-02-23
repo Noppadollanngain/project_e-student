@@ -40,18 +40,30 @@ class ApiController extends Controller
                     # code...
                 }
             }
-            return [
-                "datalogin" => [
-                    "email" => $username,
-                    "password" => $password,
-                    "status" => true
-                ],
-                "datauser" => [
-                    "fname" => $datashow->fname,
-                    "lname" => $datashow->lname,
-                ]
+            if($datashow->loginstatus==0){
 
-            ];
+                return [
+                    "datalogin" => [
+                        "email" => $username,
+                        "password" => $password,
+                        "status" => true
+                    ],
+                    "datauser" => [
+                        "fname" => $datashow->fname,
+                        "lname" => $datashow->lname,
+                    ]
+
+                ];
+            }elseif($datashow->loginstatus==1){
+                return [
+                    "datalogin" => [
+                        "email" => 'มีผู้ใช้ระบบแล้ว',
+                        "password" => '',
+                        "status" => true
+                    ]
+                ];
+            }
+
         }
     }
 }

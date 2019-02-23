@@ -38,8 +38,6 @@ class CreateDocumentdataTable extends Migration
             $table->boolean('doc1')->default(0)->nullable();
             $table->boolean('doc2')->default(0)->nullable();
             $table->boolean('doc3')->default(0)->nullable();
-            $table->boolean('doc4')->default(0)->nullable();
-            $table->boolean('doc5')->default(0)->nullable();
             $table->timestamps();
         });
     }

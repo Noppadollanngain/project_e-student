@@ -126,30 +126,6 @@
                 </label>
             </div>
         </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" value="1" name="doc4" id="fancy-checkbox-doc4" autocomplete="off" />
-            <div class="[ btn-group ]">
-                <label for="fancy-checkbox-doc4" class="[ btn btn-primary ]">
-                        <span class="fa fa-check"></span>
-                        <span class="fa fa-times"> </span>
-                </label>
-                <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                    เอกสารลำดับ 4
-                </label>
-            </div>
-        </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" value="1" name="doc5" id="fancy-checkbox-doc5" autocomplete="off" />
-            <div class="[ btn-group ]">
-                <label for="fancy-checkbox-doc5" class="[ btn btn-primary ]">
-                        <span class="fa fa-check"></span>
-                        <span class="fa fa-times"> </span>
-                </label>
-                <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                    เอกสารลำดับ 5
-                </label>
-            </div>
-        </div>
     </div>
 </div>
 <div class="row">

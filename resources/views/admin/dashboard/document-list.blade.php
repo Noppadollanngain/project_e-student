@@ -23,11 +23,9 @@
                             <th>สัญญา</th>
                             <th>ชื่อ-นามสกุล</th>
                             <th>ประเภท</th>
-                            <th>เอกสาร1</th>
-                            <th>เอกสาร2</th>
-                            <th>เอกสาร3</th>
-                            <th>เอกสาร4</th>
-                            <th>เอกสาร5</th>
+                            <th>ชั้นตอนที่ 1</th>
+                            <th>ชั้นตอนที่ 2</th>
+                            <th>ชั้นตอนที่ 3</th>
                             <th>สถานะ</th>
                         </tr>
                     </thead>
@@ -66,26 +64,12 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($lists->doc4 == 1)
-                                        <button type="button" class="btn btn-success"><i class="fa fa-check"></i></button>
-                                        @elseif($lists->doc4 == 0)
-                                        <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($lists->doc5 == 1)
-                                        <button type="button" class="btn btn-success"><i class="fa fa-check"></i></button>
-                                        @elseif($lists->doc5 == 0)
-                                        <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                        @endif
-                                    </td>
-                                    <td>
                                         @if ($lists->adminget == NULL)
                                             <button type="button" class="btn btn-danger"> ยังไม่ได้ส่งเอกสาร </button>
                                         @elseif($lists->adminget!=NULL && $lists->adminset==NULL)
-                                            <button type="button" class="btn btn-warning"> ยังไม่ได้ตวจสอบ </button>
+                                            <button type="button" class="btn btn-warning"> ยังไม่ได้ยืนยัน </button>
                                         @elseif($lists->adminset!=NULL)
-                                            <button type="button" class="btn btn-success"> ตรวจสอบแล้ว </button>
+                                            <button type="button" class="btn btn-success"> ยืนยันแล้ว </button>
                                         @endif
                                         <a href="{{asset('admin/view-user/'.$lists->student)}}" class="btn btn-primary"><i class="fa fa-search"></i></a>
                                     </td>

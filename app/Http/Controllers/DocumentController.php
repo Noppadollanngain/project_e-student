@@ -188,8 +188,6 @@ class DocumentController extends Controller
         $new->doc1 = $request->doc1;
         $new->doc2 = $request->doc2;
         $new->doc3 = $request->doc3;
-        $new->doc4 = $request->doc4;
-        $new->doc5 = $request->doc5;
 
         $new->save();
 
@@ -216,8 +214,6 @@ class DocumentController extends Controller
                         'doc1' => $request->doc1,
                         'doc2' => $request->doc2,
                         'doc3' => $request->doc3,
-                        'doc4' => $request->doc4,
-                        'doc5' => $request->doc5,
                         'adminget' => Auth::user()->id
                     ]);
 

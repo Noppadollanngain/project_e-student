@@ -97,7 +97,7 @@
                     <span class="fa fa-times"> </span>
                 </label>
                 <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                    เอกสารลำดับ 1
+                    ส่งเอกสารขอกู้ยืมเงินกองทุนฯ
                 </label>
             </div>
         </div>
@@ -111,7 +111,7 @@
                     <span class="fa fa-times"> </span>
                 </label>
                 <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                        เอกสารลำดับ 2
+                    ส่งสัญญากู้ยืมเงินกองทุนฯ
                 </label>
             </div>
         </div>
@@ -125,35 +125,7 @@
                     <span class="fa fa-times"></span>
                 </label>
                 <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                    เอกสารลำดับ 3
-                </label>
-            </div>
-        </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" value="1" name="doc4" id="fancy-checkbox-doc4" autocomplete="off" @if ($item->doc4==1)
-            checked
-        @endif/>
-            <div class="[ btn-group ]">
-                <label for="fancy-checkbox-doc4" class="[ btn btn-primary ]">
-                    <span class="fa fa-check"></span>
-                    <span class="fa fa-times"> </span>
-                </label>
-                <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                    เอกสารลำดับ 4
-                </label>
-            </div>
-        </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" value="1" name="doc5" id="fancy-checkbox-doc5" autocomplete="off" @if ($item->doc5==1)
-            checked
-        @endif/>
-            <div class="[ btn-group ]">
-                <label for="fancy-checkbox-doc5" class="[ btn btn-primary ]">
-                    <span class="fa fa-check"></span>
-                    <span class="fa fa-times"> </span>
-                </label>
-                <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                    เอกสารลำดับ 5
+                    ลงชื่อในใบยืนยันค่าเล่าเรียน / ค่าครองชีพ
                 </label>
             </div>
         </div>

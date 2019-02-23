@@ -1,15 +1,15 @@
 @extends('admin.layouts.template')
 @section('title','Edit News')
 @section('content')
+@foreach ($data as $item)
 <div class="row">
 	<div class="col-lg-10">
 		<h1 class="page-header">แก้ไขข้อมูลข่าว</h1>
     </div>
     <div class="col-lg-2">
-        <button type="button" class="btn btn-primary page-header col-lg-12">ส่งข้อความ</button>
+        <a href="{{asset('admin/News/message/'.$item->id)}}" class="btn btn-primary page-header col-lg-12">ส่งข้อความ</a>
     </div>
 </div>
-@foreach ($data as $item)
 <div class="row">
     <div class="col-lg-2">
         <a href="{{asset('/images/News/'.$item->image)}}" data-lity>

@@ -84,7 +84,7 @@ class NewsController extends Controller
         $data = News::find($id);
         $data->header = $request->header;
         $data->message = $request->message;
-        $data->status = 0;
+        $data->status = 2;
         $data->typestudent = $request->type;
         $data->admin_create = Auth::user()->id;
 

@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('api/login/{username}/{password}','ApiController@Login')->name('api.login');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
-Route::get('storefirebase','FirebaseController@store_backend_username');
-//Route::get('firebase','FirebaseController@create');
 
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -59,4 +59,5 @@ Route::prefix('admin')->group(function() {
     Route::post('News/create_set','NewsController@createnew')->name('admin.news.create.set');
     Route::get('News/edit/{id}','NewsController@edit')->name('admin.news.edit');
     Route::post('News/updatenews/{id}','NewsController@updatenews')->name('admin.news.update');
+    Route::get('News/message/{id}','FirebaseController@createNews');
 });

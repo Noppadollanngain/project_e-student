@@ -9,9 +9,16 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 use Illuminate\Support\Facades\Crypt;
 use Hash;
+use App\News;
+use Carbon\Carbon;
+use Auth;
 
 class FirebaseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -150,5 +157,35 @@ class FirebaseController extends Controller
     public function store_backend_username()
     {
 
+    }
+
+    public function createNews($id){
+        $update = News::find($id);
+        $update->send_message = Carbon::now()->toDateTimeString();
+        $update->status = 1;
+        $update->admin_send = Auth::user()->id;
+        $update->save();
+
+        $data = DB::table('news')
+                    ->where('news.id', '=', $id)
+                    ->get();
+        //dd($data);
+        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/test-project-9d73f-firebase-adminsdk-brci2-d720a70bbf.json');
+        $firebase = (new Factory)->withServiceAccount($serviceAccount)
+                                 ->withDatabaseUri('https://test-project-9d73f.firebaseio.com')
+                                 ->create();
+        $database = $firebase->getDatabase();
+
+        foreach($data as $dataset){
+            $newPost = $database->getReference('Users/News/'.$id)
+                             ->set([
+                                'headerNew' => $dataset->header,
+                                'message' => $dataset->message,
+                                'image' => $dataset->image,
+                                'type' => $dataset->typestudent
+                             ]);
+        }
+        session()->flash('statuscreate', 'ข้อความถูกส่งไปเรียบร้อย');
+        return redirect()->route('admin.news');
     }
 }

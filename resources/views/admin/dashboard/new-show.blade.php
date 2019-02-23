@@ -15,9 +15,11 @@
     @foreach ($data as $item)
     <a href="/admin/News/edit/{{$item->id}}" style="color:#303030">
         <div class="col-lg-12">
-            <div @if ($item->status!=0)
+            <div @if ($item->status==1)
                     class="panel panel-info"
-                @else
+                @elseif($item->status==0)
+                    class="panel panel-danger"
+                @elseif($item->status==2)
                     class="panel panel-warning"
                 @endif >
                 <div class="panel-heading">
@@ -60,7 +62,7 @@
                         </div>
                         <div class="col-lg-4">
                             ส่งเมื่อ
-                            @if ($item->status!=0)
+                            @if ($item->status==1)
                                 {{$item->send_message}}
                             @else
                                 -

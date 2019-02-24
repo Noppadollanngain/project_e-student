@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('api/login/{username}/{password}','ApiController@Login')->name('api.login');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
